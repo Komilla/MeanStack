@@ -1,0 +1,108 @@
+<div class="row">
+<BR>
+<div class="col-md-12" id="greenback">
+<BR>
+<H2>Search Any Movie from the entire World :</H2>
+<input type="text" ng-model="movie.Title" placeholder="Enter the Movie Name" required="true" />
+<input type="text" ng-model="movie.Year" placeholder="Enter Year of Release" />
+<button type="button" ng-click="update(movie)" class="btn btn-info btn-md btn3d"> Search Movie Details </button>
+<BR><BR><BR>
+<div class="col-md-12 well">
+<div class="table-responsive" ng-if="myentirelist.Response==='True'">
+
+<table class="table">
+<tr>
+<!-- <td id="mytd"></td>
+<td> -->
+  <H2>
+    {{myentirelist.Title}}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img id="mythumbnail" ng-src={{myentirelist.Poster}}/>
+</H2>
+<!-- </td> -->
+</tr>
+
+<!-- <tr>
+  <td id="mytd"> Title </td>
+  <td><H3>{{myentirelist.Title}}</H3></td>
+</tr> -->
+
+<tr>
+  <td id="mytd"> Release Date </td>
+  <td>{{myentirelist.Released}}</td>
+</tr>
+
+<tr>
+  <td id="mytd"> Duration </td>
+  <td>{{myentirelist.Runtime}}</td>
+</tr>
+
+<tr>
+  <td id="mytd"> Genre </td>
+  <td>{{myentirelist.Genre}}</td>
+</tr>
+
+<tr>
+  <td id="mytd"> Director </td>
+  <td>{{myentirelist.Director}}</td>
+</tr>
+
+<tr>
+  <td id="mytd"> Star Cast </td>
+  <td>{{myentirelist.Actors}}</td>
+</tr>
+
+<tr>
+  <td id="mytd"> Country </td>
+  <td>{{myentirelist.Country}}</td>
+</tr>
+
+<tr>
+  <td id="mytd"> Language </td>
+  <td>{{myentirelist.Language}}</td>
+</tr>
+
+<tr>
+  <td id="mytd"> Recommended </td>
+  <td>by {{myentirelist.imdbRating*10}} % Viewers</td>
+</tr>
+
+<tr>
+  <td id="mytd"> Story </td>
+  <td>{{myentirelist.Plot}}</td>
+</tr>
+
+<tr>
+  <td></td>
+<td>
+<a ng-href="http://imdb.com/title/{{ myentirelist.imdbID }}" target="_blank"><button class="btn btn-info btn-sm btn3d">IMDB</button></a>
+<a ng-href="https://www.youtube.com/results?search_query={{ myentirelist.Title }}" target="_blank"><button class="btn btn-info btn-sm btn3d">Trailers</button></a>
+<a ng-href="http://subscene.com/subtitles/title?q={{ myentirelist.Title }}" target="_blank"><button class="btn btn-info btn-sm btn3d">Subtitles</button></a>
+<a ng-href="http://www.theost.com/search/custom/?key={{ myentirelist.Title }}" target="_blank" ><button class="btn btn-info btn-sm btn3d">Soundtracks</button></a>
+<a ng-href="http://www.amazon.in/s/ref=nb_sb_noss_1?url=search-alias%3Ddvd&field-keywords={{ myentirelist.Title }}" target="_blank"><button class="btn btn-info btn-sm btn3d">Buy this movie!</button></a>
+</td>
+</tr>
+</table>
+</div>  <!-- ng-if true -->
+
+<div class="table-responsive" ng-if="!myentirelist">
+  <BR>
+<i class="fa fa-spinner fa-spin fa-5x"></i>
+  <BR>
+<H3>  Searching Movie in the Database! </H3>
+</div> <!-- ng-if waiting -->
+
+<div class="table-responsive" ng-if="myentirelist.Response==='False'">
+  <H1>Please don't make-up movie names by yourself
+<i class="fa fa-exclamation"></i></H1>
+<BR>
+ <i class="fa fa-frown-o fa-2x"></i> &nbsp;
+ <i class="fa fa-frown-o fa-2x"></i> &nbsp;
+ <i class="fa fa-frown-o fa-2x"></i>
+</div>  <!-- ng-if false -->
+<BR>
+</div>
+<BR>
+</div>
+<BR>
+</div>

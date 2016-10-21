@@ -1,0 +1,262 @@
+<div class="col-md-12 well"> <!-- div well open -->
+<div class="row"> <!-- div row open -->
+<div class="table-responsive">
+
+<BR>
+
+  <table>
+    <tr>
+      <H1>Hello Admin! Welcome to the Control Panel</H1>
+    </tr>
+  <tr>
+  <td>
+  <button type="submit" class="btn btn-danger btn-lg btn3d"  data-toggle="modal" data-target="#modalcity"  data-dismiss="modal">&nbsp;Manage&nbsp; &nbsp;Cities&nbsp;</button>
+  </td>
+  <td>
+  <button type="submit" class="btn btn-danger btn-lg btn3d"  data-toggle="modal" data-target="#modaltheatre"  data-dismiss="modal">Manage Theatres</button>
+  </td>
+  <td>
+  <button type="submit" class="btn btn-danger btn-lg btn3d"  data-toggle="modal" data-target="#modalmovie"  data-dismiss="modal">&nbsp;Manage Movies&nbsp;</button>
+  </td>
+  </tr>
+    </table>
+<BR>
+<BR>
+</div> <!-- div responsive close -->
+  </div> <!-- div row close -->
+  <BR>
+  <BR>
+  <BR>
+    <div class="table-responsive">
+
+<label>Enter Movie Dates & Movie Timings in the Control Panel given below :</label>
+
+<table>
+
+<BR>
+<tr>
+<td> <input ng-model="stim.stimID" ng-value="stim.stimID" placeholder="Enter Date"/></td>
+<td><input ng-model="stim.stimName" ng-value="stim.stimName" placeholder="Enter Movie Timings"/></td>
+
+<td><select ng-model="stim.cityName">
+<option value="" selected>City & State</option>
+<option ng-repeat="thtr in thtrList" ng-value="stim.cityName">{{thtr.cityName}}</option>
+</select></td>
+
+</tr>
+
+<tr>
+
+  <td><select ng-model="stim.thtrName">
+  <option value="" selected>Theatre & Location</option>
+  <option ng-repeat="thtr in thtrList" ng-value="stim.thtrName">{{thtr.thtrName  + " ( "  + thtr.thtrID + " )"}}</option>
+  </select></td>
+
+  <td><select ng-model="stim.showName">
+  <option value="" selected>Movie & Language</option>
+  <option ng-repeat="show in showList" ng-value="stim.showName">{{show.showName  + " ( "  + show.showID + " )"}}</option>
+  </select></td>
+
+<td><button ng-click="addData(stim)" class="btn btn-info btn-sm btn3d">Add a new Slot</button>
+<button ng-click="updateData(stim)" class="btn btn-info btn-sm btn3d">Update Slot</button></td>
+</tr>
+</table>
+<BR>
+
+  </div> <!-- div  close -->
+</div> <!-- div well close -->
+  <div class="table-responsive">
+     <BR><BR>
+
+  <!-- <BR><BR><BR><BR> -->
+
+<H3>Here's a complete list of the movies which are currently running in Theatres :</H3>
+<table>
+  <!-- filter -->
+  <tr>
+     Enter any Movie Name or Theatre or Date or City or any other value to search:
+     <input type="text" ng-model="myfilter" placeholder="Search Here">
+   </tr>
+<BR>
+<BR>
+<tr>
+<th>Date</th>
+<th>Time</th>
+<th>Movie & Lanugage</th>
+<th>Theatre & Location</th>
+<th>City & State</th>
+<th>Remove</th>
+<th>Edit</th>
+</tr>
+<tr ng-repeat=" stim in stimList | filter:myfilter">
+<td>{{stim.stimID}}</td>
+<td>{{stim.stimName}}</td>
+<td>{{stim.showName}}</td>
+<td>{{stim.thtrName}}</td>
+<td>{{stim.cityName}}</td>
+
+<td><button ng-click="deleteData(stim)" class="btn btn-danger btn-sm btn3d">Remove</button></td>
+<td><button ng-click="editData(stim)" class="btn btn-info btn-sm btn3d">Edit</button></td>
+</tr>
+
+</table>
+
+<BR>
+
+</div> <!-- div  close -->
+
+<!-- Code for the City Modal starts here! -->
+<div class="modal fade" id="modalcity">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-body">
+  <h2>Manage the Cities in India :</h2>
+  <center>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>State Name</td>
+                <td>City Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+             <td><input ng-model="city.cityID" /></td>
+                <td><input ng-model="city.cityName" /></td>
+                <td><button ng-click="addData(city)" class="btn btn-info btn-sm btn3d">Add a new City</button></td>
+                <td><button ng-click="updateData(city)" class="btn btn-info btn-sm btn3d">Update City</button></td>
+            </tr>
+            <tr ng-repeat=" city in cityList">
+                <td>{{city.cityID}}</td>
+                <td>{{city.cityName}}</td>
+                <td><button ng-click="deleteData(city)" class="btn btn-danger btn-sm btn3d">Remove this City</button></td>
+                <td><button ng-click="editData(city)" class="btn btn-info btn-sm btn3d">Edit this City</button></td>
+            </tr>
+        </tbody>
+      </table>
+      <button type="submit" class="btn btn-info btn-sm btn3d"  data-toggle="modal" data-target="#modalmovie"  data-dismiss="modal">Manage Movies</button>
+      <button type="submit" class="btn btn-danger btn-sm btn3d" data-dismiss="modal">Close This!</button>
+      <button type="submit" class="btn btn-info btn-sm btn3d"  data-toggle="modal" data-target="#modaltheatre"  data-dismiss="modal">Manage Theatres</button>
+      <!-- <button type="submit" class="btn btn-info btn-sm btn3d"  data-toggle="modal" data-target="#modaltimings"  data-dismiss="modal">Manage Date & Timings</button> -->
+
+      </center>
+
+</div> <!-- close "modal-body" -->
+</div> <!-- close "modal-content" -->
+</div> <!-- close "modal-dialog" -->
+</div> <!-- close "modal fade" -->
+<!-- Code for the City Modal ends here! -->
+
+    <!-- Code for the Theare Modal starts here! -->
+    <div class="modal fade" id="modaltheatre">
+    <div class="modal-dialog">
+    <div class="modal-content">
+ 		<div class="modal-body">
+                <h2>Choose Your Theatre Here :</h2>
+                    <center>
+                      <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Theatre Location</td>
+                            <td>Theatre Name</td>
+                            <td>City</td>
+                            <!-- <td>Movie</td> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                         <td><input ng-model="thtr.thtrID" /></td>
+                            <td><input ng-model="thtr.thtrName" /></td>
+
+                            <td><select ng-model="thtr.cityName">
+                            <option value="" selected>City & State</option>
+                            <option ng-repeat="city in cityList" ng-value="thtr.cityName">{{city.cityName + " ( " + city.cityID + " )"}}</option>
+                            </select></td>
+
+                              <!-- <td><select ng-model="thtr.showName">
+                                  <option value="" selected>Select your Movie</option>
+                                   <option ng-repeat="show in showList" ng-value="show.showName">{{show.showName}}</option>
+                                </select></td> -->
+
+                            <td><button ng-click="addData(thtr)" class="btn btn-info btn-sm btn3d">Add a new Theatre</button></td>
+                            <td><button ng-click="updateData(thtr)" class="btn btn-info btn-sm btn3d">Update Theatre</button></td>
+                        </tr>
+                        <tr ng-repeat=" thtr in thtrList">
+                           <td>{{thtr.thtrID}}</td>
+                            <td>{{thtr.thtrName}}</td>
+                            <td>{{thtr.cityName}}</td>
+                            <!-- <td>{{thtr.showName}}</td> -->
+                            <td><button ng-click="deleteData(thtr)" class="btn btn-danger btn-sm btn3d">Remove this Theatre</button></td>
+                            <td><button ng-click="editData(thtr)" class="btn btn-info btn-sm btn3d">Edit this Theatre</button></td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <button type="submit" class="btn btn-info btn-sm btn3d"  data-toggle="modal" data-target="#modalcity"  data-dismiss="modal">Manage Cities</button>
+                  <button type="submit" class="btn btn-danger btn-sm btn3d" data-dismiss="modal">Close This!</button>
+                  <button type="submit" class="btn btn-info btn-sm btn3d"  data-toggle="modal" data-target="#modalmovie"  data-dismiss="modal">Manage Movies</button>
+                  <!-- <button type="submit" class="btn btn-info btn-sm btn3d"  data-toggle="modal" data-target="#modaltimings"  data-dismiss="modal">Manage Date & Timings</button> -->
+                  </center>
+
+		</div> <!-- close "modal-body" -->
+  </div> <!-- close "modal-content" -->
+</div> <!-- close "modal-dialog" -->
+</div> <!-- close "modal fade" -->
+<!-- Code for the Theatre Modal ends here! -->
+
+
+<!-- Code for the Movie Modal starts here! -->
+<div class="modal fade" id="modalmovie">
+<div class="modal-dialog">
+  <div class="modal-content">
+        <div class="modal-body">
+
+        <h2>Choose The Movie Here :</h2>
+          <center>
+                <table class="table">
+          <thead>
+            <tr>
+                <td>Language</td>
+                <td>Movie</td>
+                <!-- <td>Theatre</td> -->
+                <!-- <td>Timings</td> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+             <td><input ng-model="show.showID" /></td>
+                <td><input ng-model="show.showName" /></td>
+                  <!-- <td><select ng-model="show.thtrName">
+                  <option value="" selected>Theatre</option>
+                   <option ng-repeat="thtr in thtrList" ng-value="thtr.thtrName">{{thtr.thtrName}}</option>
+                  </select></td> -->
+
+                  <!-- <td><select ng-model="show.stimName">
+                    <option value="" selected>Timings</option>
+                     <option ng-repeat="stim in stimList" ng-value="stim.stimName">{{stim.stimName}}</option>
+                    </select></td> -->
+
+                <td><button ng-click="addData(show)" class="btn btn-info btn-sm btn3d">Add a new Movie</button></td>
+                <td><button ng-click="updateData(show)" class="btn btn-info btn-sm btn3d">Update Movie</button></td>
+            </tr>
+            <tr ng-repeat=" show in showList">
+                <td>{{show.showID}}</td>
+                <td>{{show.showName}}</td>
+                <!-- <td>{{show.thtrName}}</td>
+                <td>{{show.stimName}}</td> -->
+                <td><button ng-click="deleteData(show)" class="btn btn-danger btn-sm btn3d">Remove this Movie</button></td>
+                <td><button ng-click="editData(show)" class="btn btn-info btn-sm btn3d">Edit this Movie</button></td>
+            </tr>
+          </tbody>
+          </table>
+          <button type="submit" class="btn btn-info btn-sm btn3d"  data-toggle="modal" data-target="#modalcity"  data-dismiss="modal">Manage Cities</button>
+          <button type="submit" class="btn btn-danger btn-sm btn3d" data-dismiss="modal">Close This!</button>
+          <button type="submit" class="btn btn-info btn-sm btn3d"  data-toggle="modal" data-target="#modaltheatre"  data-dismiss="modal">Manage Theatres</button>
+          <!-- <button type="submit" class="btn btn-info btn-sm btn3d"  data-toggle="modal" data-target="#modaltimings"  data-dismiss="modal">Manage Date & Timings</button> -->
+
+          </center>
+
+</div> <!-- close "modal-body" -->
+</div> <!-- close "modal-content" -->
+</div> <!-- close "modal-dialog" -->
+</div> <!-- close "modal fade" -->
+<!-- Code for the Movie Modal ends here! -->

@@ -1,0 +1,69 @@
+<div class="row">
+<BR>
+<div class="col-md-12 well">
+
+<H2>Welcome to the Booking Page!</H2>
+
+<BR>
+<div class="table-responsive">
+<BR>
+
+  <!-- <div ng-repeat="mybooking in mybookinglist">{{mybooking.showName}}
+      <div ng-repeat="showName in  mybooking.showName">
+          {{showName.thtrName}}
+      </div>
+   </div> -->
+
+
+<!-- filter -->
+Enter any Movie Name or Theatre or Date or City or any other value to search:
+<input type="text" ng-model="myfilter" placeholder="Search Here">
+
+<BR><BR>
+<H3>Choose the Movie & then click Submit Button :
+<a href="#/seatselection"><button ng-click="addBook()" class="btn btn-info btn-sm btn3d">Submit your Selection</button></a>
+</H3>
+ <select class="myback" ng-model="mybooking.moviedetails" ng-attr-size="{{mybookinglist.length+1}}">
+ <option class="myopt" value="" selected>
+   &#9835;   Movie ( Language )
+   &nbsp; &nbsp; &#9835; &nbsp; &nbsp; Theatre ( Location )
+   &nbsp; &nbsp; &#9835; &nbsp; &nbsp; City ( State )
+   &nbsp; &nbsp; &#9835; &nbsp; &nbsp; Date
+   &nbsp; &nbsp; & &nbsp; &nbsp; Month
+   &nbsp; &nbsp; &#9835; &nbsp; &nbsp; Time
+ </option>
+ <option class="myoption" ng-repeat="mybooking in mybookinglist | filter:myfilter | orderBy:'showName' " ng-value="mybooking.moviedetails">&#9835; {{mybooking.showName}} &#9835; {{mybooking.thtrName}} &#9835; {{mybooking.cityName}} &#9835; {{mybooking.stimID}} &#9835; {{mybooking.stimName}}</option>
+</select>
+
+<!-- <table>
+<tr>
+   Enter any Movie Name or Theatre or Date or City or any other value to search:
+   <input type="text" ng-model="myfilter" placeholder="What are you searching?">
+ </tr>
+
+
+<tr><H4>Here's a complete list of the movies which are currently running in Theatres :</H4></tr>
+
+  <tr>
+  <th>Date</th>
+  <th>Time</th>
+  <th>Movie & Language</th>
+  <th>Theatre & Location</th>
+  <th>City & State</th>
+  </tr>
+
+<tr ng-repeat="mybooking in mybookinglist | filter:myfilter" ng-model="mybooking.moviedetails">
+     <td>{{mybooking.stimID}}</td>
+    <td>{{mybooking.stimName}}</td>
+    <td>{{mybooking.showName}}</td>
+    <td>{{mybooking.thtrName}}</td>
+    <td>{{mybooking.cityName}}</td>
+</tr>
+
+<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</table> -->
+<BR>
+</div>
+<BR>
+</div> <!-- div two close -->
+</div> <!-- div one close -->

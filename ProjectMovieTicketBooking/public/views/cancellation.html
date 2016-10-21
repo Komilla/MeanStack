@@ -1,0 +1,36 @@
+<div class="row">
+<BR>
+<div class="col-md-12 well">
+<BR>
+<div class="table-responsive">
+
+<!-- filter -->
+<input type="text" ng-model="myfilter.bookID" placeholder="Enter Your Booking ID">
+
+<!-- Output based on Filter -->
+<table>
+<tr ng-repeat=" myseating in myseatinglist | filter:myfilter" ng-if="myfilter.bookID!=null && myfilter.bookID!='' ">
+<td>
+<H5>
+<BR>
+Show Details:
+<BR><BR>
+{{myseating.moviedetails}}
+<BR><BR>
+Amount: {{myseating.amount}}
+<BR><BR>
+Seat No: {{myseating.seatNo}}
+<BR><BR>
+Mobile No: {{myseating.mobileNo}}
+<BR><BR>
+E-Mail ID: {{myseating.emailID}}
+</H5>
+<button ng-click="removeSeat(myseating)" class="btn btn-info btn-sm btn3d">Delete My Booking Permanently</button>
+</td>
+</tr>
+</table>
+
+</div>
+  <BR>
+</div>
+</div>

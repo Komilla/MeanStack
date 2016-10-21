@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Komilla's Movie Ticket Booking Project</title>
+      <!-- load bootstrap and fontawesome via CDN -->
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css" />
+</head>
+
+<body  ng-app="movieApp">
+<div class="container">
+
+ <header>
+   <nav class="navbar navbar-static-top">
+      <div class="col-md-12">
+         <ul class="nav navbar-nav">
+           <li><a href="#/"><i class="fa fa-home"></i> Home</a></li>
+           <li><a href="#/admin"><i class="fa fa-github-alt"></i> Admin</a></li>
+           <!-- <li><a href="#/seatselection"><i class="fa fa-leaf"></i> Seat-Selection</a></li> -->
+           <li><a href="#/booking"><i class="fa fa-book"></i> Book-Tickets</a></li>
+           <!-- <li ng-show="User.isLoggedIn()" ng-class="{active: User.isActive('/book')}"><a href="#/booking"><i class="fa fa-book"></i> Book-Tickets</a></li> -->
+           <li><a href="#/cancellation"><i class="fa fa-trash-o"></i> Cancel-Tickets</a></li>
+           <li><a href="#/rating"><i class="fa fa-thumbs-o-up"></i> Ratings</a></li>
+           <li><a href="#/searchmovie"><i class="fa fa-binoculars"></i> Search Movie</a></li>
+           <li><a href="#/register"><i class="fa fa-reddit-alien"></i> Sign-Up</a></li>
+           <li><a href="#/login"><i class="fa fa-plane"></i> Sign-In</a></li>
+           <li><a href="#/logout" ng-click='logout()'><i class="fa fa-power-off"></i>  Sign-Out</a></li>
+         </ul>
+
+     </div>
+    </nav>
+  </header>
+
+  <div ng-view></div>
+
+
+  <footer>
+      <h5><i class="fa fa-quote-left"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Designed & Developed by Komilla &nbsp;&nbsp; <i class="fa fa-gavel"></i> &nbsp;&nbsp; All Rights Reserved ! &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-quote-right"></i></H5>
+    </footer>
+
+
+</div>
+
+<script type="text/javascript" src="/build/bundle.js"></script>
+
+</body>
+</html>

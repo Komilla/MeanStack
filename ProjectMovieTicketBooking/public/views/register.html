@@ -1,0 +1,19 @@
+    <div class="row">
+<BR>
+  <div class="col-md-12 well">
+    <BR>
+  <h2>Welcome to the Sign-Up Page</h2>
+  <BR>
+  <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+  <form class="form" ng-submit="register()">
+
+      <!-- <label>UserName</label> -->
+      <input type="text" name="username" placeholder="Enter your UserName" ng-model="registerForm.username" required>
+      <!-- <label>Password</label> -->
+
+        <input type="password" name="password" placeholder="Enter your Password" ng-model="registerForm.password" required>
+        <button type="submit" class="btn btn-info btn-md btn3d" ng-disabled="disabled">Register</button>
+  </form>
+  <BR>
+</div>
+</div>

@@ -1,0 +1,25 @@
+<div class="row">
+<BR>
+<div class="col-md-12 well">
+<BR>
+
+  <h2>Welcome to the Sign-In Page</h2>
+  <BR>
+  <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+  <form class="form" ng-submit="login()">
+
+      <!-- <label>UserName</label> -->
+      <input type="text" name="username" placeholder="Enter your UserName" ng-model="loginForm.username" required>
+
+      <!-- <label>Password</label> -->
+
+        <input type="password" name="password" placeholder="Enter your Password" ng-model="loginForm.password" required>
+
+        <button type="submit" class="btn btn-info btn-md btn3d" ng-disabled="disabled">Login</button>
+
+
+  <a href="#/register"><button type="submit" class="btn btn-info btn-md btn3d" ng-disabled="disabled">Sign Up</button></a>
+</form>
+<BR>
+</div>
+</div>

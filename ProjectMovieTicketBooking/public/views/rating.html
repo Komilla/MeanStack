@@ -1,0 +1,64 @@
+<div class="row"> <!-- div row open -->
+<BR>
+<div class="col-md-12"> <!-- div col -->
+<BR><BR>
+<div class="col-md-12 well"> <!-- div well open -->
+
+<div class="table-responsive"> <!-- div responsive -->
+<H1>Rate the Movie</H1>
+
+<BR><BR>
+          <label> Click the Stars to give your Movie Rating</label>
+          <input ng-model="myrating.rateID" ng-value="5" class="star star-5" id="star-5" type="radio" name="star"/>
+          <label class="star star-5" for="star-5"></label>
+          <input ng-model="myrating.rateID" ng-value="4" class="star star-4" id="star-4" type="radio" name="star"/>
+          <label class="star star-4" for="star-4"></label >
+          <input ng-model="myrating.rateID" ng-value="3" class="star star-3" id="star-3" type="radio" name="star"/>
+          <label class="star star-3" for="star-3"></label>
+          <input ng-model="myrating.rateID" ng-value="2" class="star star-2" id="star-2" type="radio" name="star"/>
+          <label class="star star-2" for="star-2"></label>
+          <input ng-model="myrating.rateID" ng-value="1" class="star star-1" id="star-1" type="radio" name="star"/>
+          <label class="star star-1" for="star-1"></label>
+
+
+<BR><BR><BR><BR>
+            <form>
+
+<H4><center>
+              <select ng-model="myrating.showName">
+              <option value="" selected>Choose the Movie Name</option>
+              <option ng-repeat="myrate in myratelist" ng-value="myrating.showName">{{myrate.showName}}</option>
+              </select>
+            <input ng-model="myrating.raterName" placeholder="Enter your Name"/>
+            <input ng-model="myrating.emailID" placeholder="Enter your E-Mail ID"/>
+        <button ng-click="addRate()" class="btn btn-info btn-sm btn3d">Submit my Rating!</button>
+    </center></H4>
+
+          </form>
+        </div> <!-- div responsive close -->
+    </div> <!-- div well close -->
+<BR><BR>
+    <!-- <BR><BR><BR><BR><BR><BR><BR> -->
+
+<div class="table-responsive"> <!-- div responsive -->
+    <H3>Ratings given by the users so far :</H3>
+    <table class="table">
+    <tr>
+    <th>Movie Name</th>
+    <th>Stars Received</th>
+    <th>Rated By</th>
+    <th>E-Mail ID</th>
+    </tr>
+    <tr ng-repeat=" myrating in myratinglist">
+    <td>{{myrating.showName}}</td>
+    <td>{{myrating.rateID}}</td>
+    <td>{{myrating.raterName}}</td>
+    <td>{{myrating.emailID}}</td>
+    </tr>
+    </table>
+    <BR>
+      </div> <!-- div responsive close -->
+    <BR>
+  </div> <!-- div col close -->
+  <BR>
+  </div> <!-- div row close -->
